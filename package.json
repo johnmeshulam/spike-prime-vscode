@@ -11,6 +11,7 @@
     "Other"
   ],
   "activationEvents": [
+    "onView:spike-prime.status",
     "onCommand:spike-prime-vscode.helloWorld"
   ],
   "main": "./out/extension.js",
@@ -26,18 +27,19 @@
         {
           "id": "spike-prime-controls",
           "title": "SPIKE Prime",
-          "icon": "resources/spike-prime-controls.svg"
+          "icon": "resources/icons/spike-prime-controls.svg"
         }
       ]
     },
     "views": {
       "spike-prime-controls": [
         {
-          "id": "spike-prime-status",
+          "type": "webview",
+          "id": "spike-prime.status",
           "name": "Status"
         },
         {
-          "id": "spike-prime-files",
+          "id": "spike-prime.files",
           "name": "Files"
         }
       ]
