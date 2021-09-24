@@ -64,8 +64,11 @@ class StatusViewProvider implements vscode.WebviewViewProvider {
   private _getHtmlForWebview(webview: vscode.Webview) {
     // Use a nonce to only allow a specific script to be run.
     const nonce = getNonce();
+    let html: string = ``;
 
-    return `<!DOCTYPE html>
+
+    html +=  `
+    <!DOCTYPE html>
       <html lang="en">
       <head>
         <meta charset="UTF-8">
@@ -78,12 +81,13 @@ class StatusViewProvider implements vscode.WebviewViewProvider {
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <title>SPIKE Test</title>
+        <title>SPIKE Prime Status</title>
       </head>
       <body>
         <p>Hello World</p>
       </body>
       </html>`;
+      return html;
   }
 }
 
