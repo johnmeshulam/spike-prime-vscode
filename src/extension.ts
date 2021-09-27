@@ -62,6 +62,9 @@ class StatusViewProvider implements vscode.WebviewViewProvider {
   }
 
   private _getHtmlForWebview(webview: vscode.Webview) {
+    //Get file paths
+    const spikeTopViewUri = webview.asWebviewUri(vscode.Uri.joinPath(this._extensionUri, 'resources', 'icons', 'spike-top-view.svg'));
+
     // Use a nonce to only allow a specific script to be run.
     const nonce = getNonce();
     let html: string = ``;
@@ -84,7 +87,27 @@ class StatusViewProvider implements vscode.WebviewViewProvider {
         <title>SPIKE Prime Status</title>
       </head>
       <body>
-        <p>Hello World</p>
+        <table>
+          <tr>
+            <td>A</td>
+            <td rowspan="3">
+              <img 
+              src="${spikeTopViewUri}"
+              alt="Spike PRIME Hub"
+              height="60pt"
+              width="36pt" />
+            </td>
+            <td>D</td>
+          </tr>
+          <tr>
+            <td>B</td>
+            <td>E</td>
+          </tr> 
+            <td>C</td>
+            <td>F</td>
+          <tr>
+          </tr>
+        </table>
       </body>
       </html>`;
       return html;
